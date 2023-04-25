@@ -21,18 +21,18 @@ CALCULAR.addEventListener('click', () => {
     }
 })
 function calcFlujo(peso){
-    let resto = peso;
     let flujo = 0;
-    if (resto>20){
-        let aux = resto-20;
-        flujo += aux*1;
-        resto -= aux;
-    } 
-    if (resto>10){
-        let aux = resto-10;
-        flujo += aux*2;
-        resto -= aux;
+    if (peso<=10){
+        flujo = peso*100;
     }
-    flujo += resto*4;
+    else if (peso<=20){
+        flujo = 1000+(peso-10)*50;
+    } 
+    else if (peso<=30){
+        flujo = 1500+(peso-20)*20;
+    }
+    else {
+        flujo = ((peso*4)+7)/(peso+90);
+    }
     return flujo;
 }
